@@ -1,0 +1,26 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+
+  metas:
+    title:        Farmacia 24h
+    description:  Farmacia de turno más cercana
+    viewport: "width=device-width, initial-scale=1.0"
+    #keywords:     symfony, project
+    #language:     en
+    #robots:       index, follow
+
+  stylesheets:
+    - bootstrap.min.css
+    - bootstrap-responsive.min.css
+    - style.css
+
+  javascripts:
+    - "http://code.jquery.com/jquery.js"
+    - bootstrap.min.js
+    - "http://maps.googleapis.com/maps/api/js?key=AIzaSyA-aJwzzVJaqGufJmoG3ZHytkRdAJL9i7k&sensor=true"
+    - farmacia24h.js
+
+  has_layout:     true
+  layout:         layout

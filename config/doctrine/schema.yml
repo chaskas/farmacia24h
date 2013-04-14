@@ -1,0 +1,36 @@
+Region:
+  columns:
+    numero:       { type: integer, notnull: true }
+    nombre:       { type: text, notnull: true }
+
+Comuna:
+  columns:
+    nombre:       { type: text, notnull: true }
+    region_id:    { type: integer, notnull: true }
+  relations:
+    Region:       { onDelete: CASCADE, local: region_id, foreign: id, foreignAlias: Comunas }
+
+Farmacia:
+  columns:
+    direccion:    { type: text, notnull: true }
+    local:        { type: text, notnull: false }
+    horario:      { type: text, notnull: false }
+    comuna_id:    { type: integer, notnull: true }
+    cadena_id:    { type: integer, notnull: true }
+  relations:
+    Comuna:       { onDelete: CASCADE, local: comuna_id, foreign: id, foreignAlias: Farmacias }
+    Cadena:       { onDelete: CASCADE, local: cadena_id, foreign: id, foreignAlias: Farmacias }
+
+Cadena:
+  columns:
+    nombre:       { type: text, notnull: true }
+
+Turno:
+  columns:
+    dia:          { type: integer, notnull: true }
+    mes:          { type: integer, notnull: true }
+    comuna_id:    { type: integer, notnull: true }
+    farmacia_id:  { type: integer, notnull: true }
+  relations:
+    Comuna:       { onDelete: CASCADE, local: comuna_id, foreign: id, foreignAlias: Turnos }
+    Farmacia:     { onDelete: CASCADE, local: farmacia_id, foreign: id, foreignAlias: Turnos }

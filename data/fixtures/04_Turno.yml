@@ -1,0 +1,6 @@
+Turno:
+  turno_1:
+    dia: 1
+    mes: 1
+    Comuna: concepcion
+    Farmacia: farmacia_1

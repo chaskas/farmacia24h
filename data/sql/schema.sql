@@ -1,0 +1,10 @@
+CREATE TABLE cadena (id BIGINT AUTO_INCREMENT, nombre text NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE comuna (id BIGINT AUTO_INCREMENT, nombre text NOT NULL, region_id BIGINT NOT NULL, INDEX region_id_idx (region_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE farmacia (id BIGINT AUTO_INCREMENT, direccion text NOT NULL, local text, horario text, comuna_id BIGINT NOT NULL, cadena_id BIGINT NOT NULL, INDEX comuna_id_idx (comuna_id), INDEX cadena_id_idx (cadena_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE region (id BIGINT AUTO_INCREMENT, numero BIGINT NOT NULL, nombre text NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE turno (id BIGINT AUTO_INCREMENT, dia BIGINT NOT NULL, mes BIGINT NOT NULL, comuna_id BIGINT NOT NULL, farmacia_id BIGINT NOT NULL, INDEX comuna_id_idx (comuna_id), INDEX farmacia_id_idx (farmacia_id), PRIMARY KEY(id)) ENGINE = INNODB;
+ALTER TABLE comuna ADD CONSTRAINT comuna_region_id_region_id FOREIGN KEY (region_id) REFERENCES region(id) ON DELETE CASCADE;
+ALTER TABLE farmacia ADD CONSTRAINT farmacia_comuna_id_comuna_id FOREIGN KEY (comuna_id) REFERENCES comuna(id) ON DELETE CASCADE;
+ALTER TABLE farmacia ADD CONSTRAINT farmacia_cadena_id_cadena_id FOREIGN KEY (cadena_id) REFERENCES cadena(id) ON DELETE CASCADE;
+ALTER TABLE turno ADD CONSTRAINT turno_farmacia_id_farmacia_id FOREIGN KEY (farmacia_id) REFERENCES farmacia(id) ON DELETE CASCADE;
+ALTER TABLE turno ADD CONSTRAINT turno_comuna_id_comuna_id FOREIGN KEY (comuna_id) REFERENCES comuna(id) ON DELETE CASCADE;

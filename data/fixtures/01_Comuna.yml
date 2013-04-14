@@ -1,0 +1,16 @@
+Comuna:
+  concepcion:
+    nombre: Concepción
+    Region: 8va
+  hualpen:
+    nombre: Hualpén
+    Region: 8va
+  talcahuano:
+    nombre: Talcahuano
+    Region: 8va
+  sanpedro:
+    nombre: San Pedro de la Paz
+    Region: 8va
+  chiguayante:
+    nombre: Chiguayante
+    Region: 8va
